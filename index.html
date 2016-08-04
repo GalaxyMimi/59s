@@ -24,8 +24,13 @@
                 justify-content: center;
                 font-family: "Share Tech Mono", monospace;
                 font-size: 144px;
-                user-select: none;
-                -moz-user-select: none;
+                -webkit-user-select: none;
+                   -moz-user-select: none;
+                    -ms-user-select: none;
+                        user-select: none;
+            }
+            #second[data-quantity="59"] {
+                color: red;
             }
             header, footer {
                 color: #777;
@@ -63,17 +68,21 @@
                 return num.toString();
             }
         };
-        var updateTime = function() {
+        var updateTimeAll = function() {
             var now = new Date(Date.now() - 1000*60*2.3333);
             var hourElem = document.getElementById('hour');
             var minuteElem = document.getElementById('minute');
             var secondElem = document.getElementById('second');
-            hourElem.innerHTML = zeroPad2(now.getHours());
-            minuteElem.innerHTML = zeroPad2(now.getMinutes());
-            secondElem.innerHTML = zeroPad2(
+            var nowHours = zeroPad2(now.getHours());
+            var nowMinutes = zeroPad2(now.getMinutes());
+            var nowSeconds = zeroPad2(
                 Math.floor((now.getSeconds() + now.getMilliseconds() / 1000 + 1) * 59.0 / 60.0)
             );
+            hourElem.innerHTML = nowHours;
+            minuteElem.innerHTML = nowMinutes;
+            secondElem.innerHTML = nowSeconds;
+            secondElem.dataset.quantity = nowSeconds;
         };
-        setInterval(updateTime, 100);
+        setInterval(updateTimeAll, 100);
     </script>
 </html>
