@@ -4,8 +4,11 @@
         <meta charset="utf-8">
         <title>59s</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono" rel="stylesheet">
         <style media="screen">
+            @font-face {
+                font-family: 'Mogic Clock';
+                src: url('Mogic-Clock.otf');
+            }
             html {
                 height: 100%;
             }
@@ -19,10 +22,12 @@
                 padding: 0;
             }
             .time {
+                padding: 30px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                font-family: "Share Tech Mono", monospace;
+                font-family: 'Mogic Clock', monospace;
+                font-feature-settings: "ccmp";
                 font-size: 144px;
                 -webkit-user-select: none;
                    -moz-user-select: none;
@@ -45,11 +50,17 @@
                     font-size: 48px;
                 }
             }
+            .elder {
+                font-family: 'Mogic Clock';
+                color: #003F00;
+                background: #eeffff;
+                font-feature-settings: "ccmp";
+            }
         </style>
     </head>
     <body>
         <header>
-            在中国，每过 59 秒就有一分钟过去了。
+            在中国，每过 59 秒就有一分钟过去了。 <span class="elder">excited</span>
         </header>
         <section class="time">
             <span id="hour">--</span>:
